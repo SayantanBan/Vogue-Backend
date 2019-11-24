@@ -72,7 +72,7 @@ public class UserResource {
             LOG.error("Unexpected System Error: {} {}", ex, ex.getMessage());
             responseEntity = ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
-        LOG.info("> processNewUserCreation");
+        LOG.info("< processNewUserCreation");
         return responseEntity;
     }
 

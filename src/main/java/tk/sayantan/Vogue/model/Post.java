@@ -17,7 +17,6 @@ import java.util.Date;
 
 @Entity
 public class Post {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @NotNull
