@@ -20,7 +20,7 @@ public class Category {
     @Column(name = "category_name")
     private String categoryName;
 
-    @OneToMany(mappedBy = "tag")
+    @OneToMany(mappedBy = "category")
     @JsonIgnore
     private List<Post> post;
 
@@ -61,6 +61,6 @@ public class Category {
 
     @Override
     public String toString() {
-        return "Tag [id=" + id + ", categoryName=" + categoryName + ", post=" + post + "]";
+        return "Category [id=" + id + ", categoryName=" + categoryName + ", post=" + post + "]";
     }
 }
