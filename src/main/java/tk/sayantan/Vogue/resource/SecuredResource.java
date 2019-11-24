@@ -111,7 +111,7 @@ public class SecuredResource {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping(value = "/users/{username}")
+    @GetMapping(value = "/users/login/{username}")
     @CrossOrigin(origins = {"http://localhost:4200"})
     public User retrieveUserByUsername(@PathVariable String username) {
         LOG.info("> retrieveUserByUsername");
