@@ -40,7 +40,6 @@ public class Post {
     private User user;
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "category_id")
-    @JsonIgnore
     private Category category;
 
     public Long getId() {
@@ -107,11 +106,11 @@ public class Post {
         this.user = user;
     }
 
-    public Category getTag() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setTag(Category category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 

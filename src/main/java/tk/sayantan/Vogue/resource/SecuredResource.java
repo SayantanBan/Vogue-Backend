@@ -152,7 +152,7 @@ public class SecuredResource {
             Optional<Category> category = categoryService.findOne(dto.categoryId);
             if (user.isPresent() && category.isPresent()) {
                 dto.post.setUser(user.get());
-                dto.post.setTag(category.get());
+                dto.post.setCategory(category.get());
                 Post savedPost = postService.save(dto.post);
                 URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("{/id}")
                         .buildAndExpand(savedPost.getId()).toUri();
@@ -176,7 +176,7 @@ public class SecuredResource {
             Optional<Category> category = categoryService.findOne(dto.categoryId);
             if (user.isPresent() && category.isPresent()) {
                 dto.post.setUser(user.get());
-                dto.post.setTag(category.get());
+                dto.post.setCategory(category.get());
                 Post savedPost = postService.save(dto.post);
                 URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("{/id}")
                         .buildAndExpand(savedPost.getId()).toUri();
