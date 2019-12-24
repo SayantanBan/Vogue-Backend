@@ -25,6 +25,7 @@ public class AdditionalWebConfig {
         config.addAllowedOrigin("https://vogue-blog.web.app");
         config.addAllowedOrigin("https://sayantanbanerjee.tk");
         config.addAllowedOrigin("https://blog.sayantanbanerjee.tk");
+        config.addAllowedOrigin("https://vogue-dev.herokuapp.com/");
         config.addAllowedHeader("*");
         config.addAllowedHeader("Authorization");
         config.addAllowedMethod("*");
