@@ -32,7 +32,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/authenticated")
-@CrossOrigin(origins = {"http://localhost:4200"})
+@CrossOrigin(origins = {"http://localhost:4200", "https://vogue-dev.herokuapp.com/"}, allowCredentials = "true")
 public class SecuredResource {
 
     private static final Logger LOG = LoggerFactory.getLogger(SecuredResource.class);
@@ -45,7 +45,7 @@ public class SecuredResource {
     private CategoryService categoryService;
 
     @GetMapping(value = "/users")
-    @CrossOrigin(origins = {"http://localhost:4200"})
+    @CrossOrigin(origins = {"http://localhost:4200", "https://vogue-dev.herokuapp.com/"}, allowCredentials = "true")
     public List<User> retrieveAllUsers() {
         LOG.info("> retrieveAllUsers");
         List<User> users = null;
@@ -59,7 +59,7 @@ public class SecuredResource {
     }
 
     @GetMapping(value = "/users/{id}")
-    @CrossOrigin(origins = {"http://localhost:4200"})
+    @CrossOrigin(origins = {"http://localhost:4200", "https://vogue-dev.herokuapp.com/"}, allowCredentials = "true")
     public User retrieveUser(@PathVariable int id) {
         LOG.info("> retrieveUser");
         User user = null;
@@ -76,7 +76,7 @@ public class SecuredResource {
     }
 
     @DeleteMapping(value = "/users/{id}")
-    @CrossOrigin(origins = {"http://localhost:4200"})
+    @CrossOrigin(origins = {"http://localhost:4200", "https://vogue-dev.herokuapp.com/"}, allowCredentials = "true")
     public User deleteUser(@PathVariable int id) {
         LOG.info("> deleteUser");
         User user = null;
@@ -93,7 +93,7 @@ public class SecuredResource {
     }
 
     @PutMapping(value = "/users")
-    @CrossOrigin(origins = {"http://localhost:4200"})
+    @CrossOrigin(origins = {"http://localhost:4200", "https://vogue-dev.herokuapp.com/"}, allowCredentials = "true")
     public ResponseEntity<Object> updateUser(@RequestBody User updateUser) {
         LOG.info("> updateUser");
         try {
@@ -112,7 +112,7 @@ public class SecuredResource {
     }
 
     @GetMapping(value = "/users/login/{username}")
-    @CrossOrigin(origins = {"http://localhost:4200"})
+    @CrossOrigin(origins = {"http://localhost:4200", "https://vogue-dev.herokuapp.com/"}, allowCredentials = "true")
     public User retrieveUserByUsername(@PathVariable String username) {
         LOG.info("> retrieveUserByUsername");
         User user = null;
@@ -128,7 +128,7 @@ public class SecuredResource {
     }
 
     @RequestMapping(value = "/users/posts/{id}", method = RequestMethod.GET)
-    @CrossOrigin(origins = {"http://localhost:4200"})
+    @CrossOrigin(origins = {"http://localhost:4200", "https://vogue-dev.herokuapp.com/"}, allowCredentials = "true")
     public List<Post> retrieveAllPostsForSpecificUser(@PathVariable int id) {
         LOG.info("> retrieveAllPostsForSpecificUser");
         List<Post> posts = null;
@@ -143,7 +143,7 @@ public class SecuredResource {
     }
 
     @PostMapping(value = "/posts")
-    @CrossOrigin(origins = {"http://localhost:4200"})
+    @CrossOrigin(origins = {"http://localhost:4200", "https://vogue-dev.herokuapp.com/"}, allowCredentials = "true")
     public ResponseEntity<Object> createPost(@RequestBody DTO dto) {
         LOG.info("> createPost");
         ResponseEntity<Object> responseEntity = null;
@@ -167,7 +167,7 @@ public class SecuredResource {
     }
 
     @PutMapping(value = "/posts")
-    @CrossOrigin(origins = {"http://localhost:4200"})
+    @CrossOrigin(origins = {"http://localhost:4200", "https://vogue-dev.herokuapp.com/"}, allowCredentials = "true")
     public ResponseEntity<Object> updatePost(@RequestBody DTO dto) {
         LOG.info("> updatePost");
         ResponseEntity<Object> responseEntity = null;
@@ -191,7 +191,7 @@ public class SecuredResource {
     }
 
     @DeleteMapping(value = "/posts/{id}", produces = "application/json")
-    @CrossOrigin(origins = {"http://localhost:4200"})
+    @CrossOrigin(origins = {"http://localhost:4200", "https://vogue-dev.herokuapp.com/"}, allowCredentials = "true")
     public ResponseEntity<Object> deletePost(@PathVariable int id) {
         LOG.info("> deletePost");
         ResponseEntity<Object> responseEntity = null;
