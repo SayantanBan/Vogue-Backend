@@ -20,7 +20,7 @@ import tk.sayantan.Vogue.service.UserService;
 import tk.sayantan.Vogue.utility.MailConstructor;
 
 import java.net.URI;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 
 @RestController
@@ -56,7 +56,7 @@ public class UserResource {
                 user.setFirstName(userFirstname);
                 user.setLastName(userLastname);
                 if (roleService.findOne(2).isPresent())
-                    user.setRoles(Arrays.asList(roleService.findOne(2).get()));
+                    user.setRoles(Collections.singletonList(roleService.findOne(2).get()));
                 String password = SecurityUtility.randomPassword();
                 String encryptedPassword = SecurityUtility.passwordEncoder().encode(password);
                 user.setPassword(encryptedPassword);
