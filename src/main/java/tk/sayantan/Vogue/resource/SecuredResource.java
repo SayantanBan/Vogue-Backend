@@ -32,7 +32,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/authenticated")
-@CrossOrigin(origins = {"https://vogue-dev.herokuapp.com"})
+@CrossOrigin(origins = {"https://vogue-dev.herokuapp.com", "http://localhost:4200"})
 public class SecuredResource {
 
     private static final Logger LOG = LoggerFactory.getLogger(SecuredResource.class);

@@ -25,6 +25,7 @@ import java.util.HashMap;
 
 @RestController
 @RequestMapping("/public")
+@CrossOrigin(origins = {"https://vogue-dev.herokuapp.com", "http://localhost:4200"})
 public class UserResource {
 
     private static final Logger LOG = LoggerFactory.getLogger(UserResource.class);
@@ -39,7 +40,6 @@ public class UserResource {
     private RoleService roleService;
 
     @RequestMapping(value = "/users/newUser", method = RequestMethod.POST)
-    @CrossOrigin(origins = {"http://localhost:4200", "https://vogue-blog.firebaseapp.com"})
     public ResponseEntity<Object> newUserPost(@RequestBody HashMap<String, String> mapper) {
         LOG.info("> processNewUserCreation");
         ResponseEntity<Object> responseEntity = null;
