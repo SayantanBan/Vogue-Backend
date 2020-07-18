@@ -182,7 +182,7 @@ public class SecuredResource {
         return responseEntity;
     }
 
-    @DeleteMapping(value = "/posts/{id}", produces = "application/json")
+    @DeleteMapping(value = "/posts/{id}")
     public ResponseEntity<Object> deletePost(@PathVariable int id) {
         LOG.info("> deletePost");
         ResponseEntity<Object> responseEntity = null;
