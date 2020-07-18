@@ -19,10 +19,10 @@ public class Category {
 
     @Column(name = "category_name")
     private String categoryName;
-
-    @OneToMany(mappedBy = "category")
-    @JsonIgnore
-    private List<Post> post;
+    
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "tag", cascade = CascadeType.ALL)
+	@JsonIgnore
+	private List<Post> post;
 
     public Category() {
         super();
