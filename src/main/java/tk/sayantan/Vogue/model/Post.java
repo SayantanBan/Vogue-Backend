@@ -3,6 +3,7 @@ package tk.sayantan.Vogue.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Type;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -16,12 +17,10 @@ import java.util.Date;
 
 @Entity
 public class Post {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @NotNull
     private Long id;
-
     @Column(name = "title")
     private String postName;
     @Column(name = "post_date")
@@ -35,14 +34,12 @@ public class Post {
     private boolean status;
     @Column(name = "allow_comment")
     private boolean allowComment;
-
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "blog_user_id")
-    private User user;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "category_id", nullable = false)
     @JsonIgnore
+    private User user;
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "category_id")
     private Category category;
 
     public Long getId() {
@@ -121,7 +118,7 @@ public class Post {
     public String toString() {
         return "Post [id=" + id + ", postName=" + postName + ", postDate=" + postDate + ", lastEdit=" + lastEdit
                 + ", postContent=" + postContent + ", status=" + status + ", allowComment=" + allowComment + ", user="
-                + user + ", categoryz=" + category + "]";
+                + user + ", category=" + category + "]";
     }
 
 }
