@@ -40,7 +40,6 @@ public class Post {
     private User user;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id", nullable = false)
-    @JsonIgnore
     private Category tag;
 
     public Long getId() {
