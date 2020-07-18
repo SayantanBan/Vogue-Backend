@@ -17,6 +17,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/public")
+@CrossOrigin(origins = {"https://vogue-dev.herokuapp.com", "http://localhost:4200"})
 public class CategoryResource {
 
     private static final Logger LOG = LoggerFactory.getLogger(SecuredResource.class);
@@ -25,7 +26,6 @@ public class CategoryResource {
     private CategoryService service;
 
     @GetMapping(value = "/category")
-    @CrossOrigin(origins = {"http://localhost:4200"})
     public List<Category> retrieveAllCategories() {
         LOG.info("> retrieveAllCategories");
         List<Category> categories = null;
@@ -39,7 +39,6 @@ public class CategoryResource {
     }
 
     @GetMapping(value = "/category/{id}")
-    @CrossOrigin(origins = {"http://localhost:4200"})
     public Category retrieveCategory(@PathVariable int id) {
         LOG.info("> retrieveCategory");
         Category category = null;

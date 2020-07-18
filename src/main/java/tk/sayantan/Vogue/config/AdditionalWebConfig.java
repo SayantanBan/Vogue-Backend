@@ -19,6 +19,7 @@ public class AdditionalWebConfig {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
+        config.addAllowedOrigin("https://vogue-dev.herokuapp.com");
         config.addAllowedOrigin("http://localhost:4200");
         config.addAllowedOrigin("https://vogue-blog.firebaseapp.com");
         config.addAllowedOrigin("https://vogue-blog.web.app");
