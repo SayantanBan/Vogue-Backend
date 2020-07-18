@@ -22,7 +22,7 @@ public class Category {
     @Column(name = "category_name")
     private String categoryName;
     
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "tag", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "category", cascade = CascadeType.ALL)
 	@JsonIgnore
 	private List<Post> post;
 
