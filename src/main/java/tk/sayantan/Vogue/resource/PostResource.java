@@ -19,6 +19,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/public")
+@CrossOrigin(origins = {"https://vogue-dev.herokuapp.com", "http://localhost:4200"})
 public class PostResource {
 
     private static final Logger LOG = LoggerFactory.getLogger(PostResource.class);
@@ -31,7 +32,6 @@ public class PostResource {
     private CategoryService categoryService;
 
     @GetMapping(value = "/posts")
-    @CrossOrigin(origins = {"http://localhost:4200"})
     public List<Post> retrieveAllPosts() {
         LOG.info("> retrieveAllPosts");
         List<Post> posts = null;
@@ -45,7 +45,6 @@ public class PostResource {
     }
 
     @GetMapping(value = "/posts/{id}")
-    @CrossOrigin(origins = {"http://localhost:4200"})
     public Post retrievePost(@PathVariable int id) {
         LOG.info("> retrievePost");
         Post retrievePost = null;

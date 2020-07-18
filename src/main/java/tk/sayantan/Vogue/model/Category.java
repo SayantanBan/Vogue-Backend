@@ -2,8 +2,10 @@ package tk.sayantan.Vogue.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,10 +21,10 @@ public class Category {
 
     @Column(name = "category_name")
     private String categoryName;
-
-    @OneToMany(mappedBy = "category")
-    @JsonIgnore
-    private List<Post> post;
+    
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "category", cascade = CascadeType.ALL)
+	@JsonIgnore
+	private List<Post> post;
 
     public Category() {
         super();

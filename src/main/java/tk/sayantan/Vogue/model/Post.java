@@ -38,7 +38,7 @@ public class Post {
     @JoinColumn(name = "blog_user_id")
     @JsonIgnore
     private User user;
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "category_id")
     private Category category;
 

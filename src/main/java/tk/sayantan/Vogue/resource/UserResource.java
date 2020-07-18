@@ -20,11 +20,12 @@ import tk.sayantan.Vogue.service.UserService;
 import tk.sayantan.Vogue.utility.MailConstructor;
 
 import java.net.URI;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 
 @RestController
 @RequestMapping("/public")
+@CrossOrigin(origins = {"https://vogue-dev.herokuapp.com", "http://localhost:4200"})
 public class UserResource {
 
     private static final Logger LOG = LoggerFactory.getLogger(UserResource.class);
@@ -39,7 +40,6 @@ public class UserResource {
     private RoleService roleService;
 
     @RequestMapping(value = "/users/newUser", method = RequestMethod.POST)
-    @CrossOrigin(origins = {"http://localhost:4200", "https://vogue-blog.firebaseapp.com"})
     public ResponseEntity<Object> newUserPost(@RequestBody HashMap<String, String> mapper) {
         LOG.info("> processNewUserCreation");
         ResponseEntity<Object> responseEntity = null;
@@ -56,7 +56,7 @@ public class UserResource {
                 user.setFirstName(userFirstname);
                 user.setLastName(userLastname);
                 if (roleService.findOne(2).isPresent())
-                    user.setRoles(Arrays.asList(roleService.findOne(2).get()));
+                    user.setRoles(Collections.singletonList(roleService.findOne(2).get()));
                 String password = SecurityUtility.randomPassword();
                 String encryptedPassword = SecurityUtility.passwordEncoder().encode(password);
                 user.setPassword(encryptedPassword);

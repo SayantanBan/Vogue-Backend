@@ -25,7 +25,7 @@ public class MailConstructor {
         email.setTo(user.getEmail());
         email.setSubject("Vogue - New User");
         email.setText(message);
-        email.setFrom(env.getProperty("support.email"));
+        email.setFrom("vogueblogofficial@gmail.com");
         return email;
     }
 }
